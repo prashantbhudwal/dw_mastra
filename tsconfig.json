@@ -6,6 +6,8 @@
     "verbatimModuleSyntax": true,
     "skipLibCheck": true,
     "types": ["node"],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx",
     "outDir": "./dist"
