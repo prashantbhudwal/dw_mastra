@@ -4,7 +4,7 @@ import { weatherAgent } from "./mastra/agents";
 
 const app = new Hono();
 
-app.get("/", async (c) => {
+const runMastra = async function () {
   const response = await weatherAgent.generate([
     {
       role: "user",
@@ -12,7 +12,12 @@ app.get("/", async (c) => {
     },
   ]);
 
-  return c.text(response.text);
+  return response.text;
+};
+
+app.get("/", async (c) => {
+  
+  return c.text("hello mastra");
 });
 
 serve(

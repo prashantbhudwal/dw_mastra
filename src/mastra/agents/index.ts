@@ -2,11 +2,15 @@ import { createOpenAI } from "@ai-sdk/openai";
 import { Agent } from "@mastra/core/agent";
 import { weatherTool } from "../tools";
 import * as dotenv from "dotenv";
+import { Memory } from "@mastra/memory";
 dotenv.config();
 
 const openai = createOpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
+
+const memory = new Memory({});
+
 export const weatherAgent = new Agent({
   name: "Weather Agent",
   instructions: `
@@ -23,4 +27,6 @@ export const weatherAgent = new Agent({
 `,
   model: openai("gpt-4.1-mini"),
   tools: { weatherTool },
+  memory: memory,
+  
 });
