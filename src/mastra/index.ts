@@ -1,11 +1,10 @@
 import { Mastra } from "@mastra/core/mastra";
 import { createLogger } from "@mastra/core/logger";
-import { weatherAgent } from "./agents";
-import { postGeneratorAgent } from "./practice/post-generator";
-import { weatherWorkflow } from "./practice/temp";
+import { rapAgent } from "../lib/course/01_generate_text";
+import { catFactAgent } from "../lib/practice/official/cat-facts";
 
 export const mastra = new Mastra({
-  agents: { weatherAgent, postGeneratorAgent },
+  agents: { catFactAgent },
   logger: createLogger({
     name: "Mastra",
     level: "info",

@@ -1,6 +1,8 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { weatherAgent } from "./mastra/agents";
+import { deepResearch } from "./lib/practice/deep-research";
+import { generateText } from "./lib/practice/tutorial/basic-agent";
 
 const app = new Hono();
 
@@ -16,8 +18,8 @@ const runMastra = async function () {
 };
 
 app.get("/", async (c) => {
-  
-  return c.text("hello mastra");
+  const result = await generateText();
+  return c.json("Hello Mastra:" + result.text);
 });
 
 serve(
