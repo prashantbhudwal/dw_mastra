@@ -1,6 +1,6 @@
 import { Agent } from "@mastra/core/agent";
-import type { TChapter, TChapterMeta } from ".";
-import { gemini } from "../models";
+import type { TChapter, TChapterMeta } from "../types";
+import { gemini } from "../../models";
 
 const metadata: TChapterMeta = {
   viewing: "required",
@@ -20,7 +20,7 @@ export const rapAgent = new Agent({
   model: gemini,
 });
 
-export const chapterOne: TChapter = {
+export const generateText: TChapter = {
   id: "generate-text",
   title: "Generating text.",
   description: "Use mastra agent to generate text.",

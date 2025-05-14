@@ -1,34 +1,7 @@
-import { chapterZero } from "./00_setup";
-import { chapterOne } from "./01_generate_text";
-
-type TGoal = string;
-
-export type TChapterMeta = {
-  contentType: "code-video" | "explanation-video";
-  viewing: "required" | "optional";
-  flow: Record<number, string>;
-  goals: TGoal[];
-};
-
-export type TChapter = {
-  id: string;
-  title: string;
-  description: string;
-  code?: Array<any>;
-  metadata: TChapterMeta;
-};
-
-type TCourse = {
-  metadata: {
-    goals: TGoal[];
-    preRequisites: string[];
-    targetAudience: string[];
-    nonAudience: string[];
-  };
-  name: string;
-  description: string;
-  chapters: TChapter[];
-};
+import { mastraFirstPrinciples } from "./introduction/00_first_principles";
+import { mastraSetup } from "./introduction/01_setup";
+import { generateText } from "./introduction/02_generate_text";
+import type { TCourse } from "./types";
 
 const courseDetails: TCourse["metadata"] = {
   goals: [],
@@ -44,5 +17,18 @@ export const course: TCourse = {
   name: "LLMs with Mastra",
   description: "This is beginner lever course",
   metadata: courseDetails,
-  chapters: [chapterZero, chapterOne],
+  modules: [
+    {
+      name: "Introduction to mastra",
+      description: "Introduce mastra, its architecture, and developer tools.",
+      goals: [""],
+      chapters: [mastraFirstPrinciples, mastraSetup, generateText],
+    },
+    {
+      name: "Using Tools in Mastra Agents",
+      description: "",
+      goals: [""],
+      chapters: [],
+    },
+  ],
 };

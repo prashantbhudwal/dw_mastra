@@ -1,4 +1,4 @@
-import type { TChapter, TChapterMeta } from ".";
+import type { TChapter, TChapterMeta } from "../types";
 
 const metadata: TChapterMeta = {
   viewing: "required",
@@ -20,7 +20,7 @@ import { google } from "@ai-sdk/google";
 export const gemini = google("gemini-2.0-flash");
 `;
 
-export const chapterZero: TChapter = {
+export const mastraSetup: TChapter = {
   id: "workspace-setup",
   title: "Setting up the workspace",
   description: "Use mastra agent to generate text.",
