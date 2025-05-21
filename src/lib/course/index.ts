@@ -1,4 +1,4 @@
-import { mastraFirstPrinciples } from "./introduction/00_first_principles";
+import { mastraFirstPrinciples } from "./introduction/00/00_first_principles";
 import { mastraSetup } from "./introduction/01_setup";
 import { generateText } from "./introduction/02_generate_text";
 import type { TCourse } from "./types";

@@ -1,15 +1,11 @@
 import { Mastra } from "@mastra/core/mastra";
 import { createLogger } from "@mastra/core/logger";
-import { rapAgent } from "../lib/course/introduction/02_generate_text";
-import { catFactAgent } from "../lib/practice/official/cat-facts";
-import { simpleWorkflow } from "../lib/practice/official/workflows/simple-workflow";
-import { myMemoryAgent } from "../lib/practice/official/memory";
+import { toxicCatAgent } from "../lib/course/introduction/00/mastra-adv";
 
 export const mastra = new Mastra({
-  agents: { catFactAgent, myMemoryAgent },
+  agents: { toxicCatAgent },
   logger: createLogger({
     name: "Mastra",
     level: "info",
   }),
-  workflows: { simpleWorkflow },
 });
